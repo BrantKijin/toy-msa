@@ -4,12 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.core.env.Environment;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
+import sample.userservice.dto.UserDto;
+import sample.userservice.jpa.UserEntity;
+import sample.userservice.jpa.UserRepository;
 import sample.userservice.vo.ResponseOrder;
 
 @Service
