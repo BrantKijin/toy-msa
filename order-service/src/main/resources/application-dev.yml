@@ -1,5 +1,5 @@
 server:
-  port: 0
+  port: 60000
 
 spring:
   application:
@@ -12,24 +12,18 @@ spring:
       path: /h2-console
   datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;
+    url: jdbc:h2:mem:testdb
     username: sa
     password:
   jpa:
     hibernate:
       ddl-auto: update
-  security:
-    user:
-      name: user
-      password: $2a$10$TMGntKeeSGSA825gCU56ZeuxxonS7C8XTUDGX4Yvn7/p3PfrceYrm
-
-logging:
-  level:
-    org.springframework.security: DEBUG
 
 eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  #    prefer-ip-address: true
+  #    ip-address: ${server.address}
   client:
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka
@@ -37,18 +31,5 @@ eureka:
     register-with-eureka: true
 
 greeting:
-  message: Welcome to the Simple E-commerce.
+  message: Welcome to the Simple E-commerce. (dev profile)
 
-token:
-  expiration-time: 86400000 #10 days
-  secret: my-very-long-secret-key-1234567890123456
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include:
-          - refresh
-          - health
-          - beans
-          - info
