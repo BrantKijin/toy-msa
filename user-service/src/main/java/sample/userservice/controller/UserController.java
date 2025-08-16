@@ -26,7 +26,7 @@ import sample.userservice.vo.RequestUser;
 import sample.userservice.vo.ResponseUser;
 
 @RestController
-@RequestMapping("/user-service")
+@RequestMapping("/")
 @Slf4j
 public class UserController {
 	private Environment env;
