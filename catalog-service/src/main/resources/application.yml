@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: user-service
+    name: catalog-service
   h2:
     console:
       enabled: true
@@ -17,15 +17,11 @@ spring:
     password:
   jpa:
     hibernate:
-      ddl-auto: update
-  security:
-    user:
-      name: user
-      password: $2a$10$TMGntKeeSGSA825gCU56ZeuxxonS7C8XTUDGX4Yvn7/p3PfrceYrm
-
-logging:
-  level:
-    org.springframework.security: DEBUG
+      ddl-auto: create-drop
+    show-sql: true
+    generate-ddl: true
+    database: h2
+    defer-datasource-initialization: true
 
 eureka:
   instance:
@@ -36,5 +32,6 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
 
-greeting:
-  message: Welcome to the Simple E-commerce.
+logging:
+  level:
+    org.springframework.security: DEBUG
