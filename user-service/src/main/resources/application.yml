@@ -4,6 +4,13 @@ server:
 spring:
   application:
     name: user-service
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+  #  profiles:
+  #    active: dev
   h2:
     console:
       enabled: true
@@ -21,7 +28,7 @@ spring:
   security:
     user:
       name: user
-      password: $2a$10$TMGntKeeSGSA825gCU56ZeuxxonS7C8XTUDGX4Yvn7/p3PfrceYrm
+      password: $2a$10$g70rRcQBR7Jnm9A9m/Nqje8lCIPeADz2.VBMxhPyzUBoJc28pvC9.
 
 logging:
   level:
@@ -37,11 +44,11 @@ eureka:
     register-with-eureka: true
 
 greeting:
-  message: Welcome to the Simple E-commerce.
+  message: Welcome to the Simple E-commerce. (spring boot)
 
-token:
-  expiration-time: 86400000 #10 days
-  secret: my-very-long-secret-key-1234567890123456
+#token:
+#  expiration-time: 86400000 #10 days
+#  secret: my-very-long-secret-key-1234567890123456
 
 management:
   endpoints:
@@ -52,3 +59,5 @@ management:
           - health
           - beans
           - info
+          - busrefresh
+
